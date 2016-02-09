@@ -37,4 +37,4 @@ eg. node server --title "Assignment 01" --folder "../assignments/first"
 
 
 ## Usage
-Uploaded files will appear in the `uploads/` folder
+Uploaded files will appear in the `uploads/` folder, unless otherwise specified by the `-f, --folder` flag
