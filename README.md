@@ -30,9 +30,9 @@ You can also use the `-f` or `--folder` flag to modify the upload destination fo
 eg. node server --folder "../assignments/first"
 ```
 
-You can also use them both at the same time
+You can also use them both at the same time, in their short forms this time
 ```
-eg. node server --title "Assignment 01" --folder "../assignments/first"
+eg. node server -t "Assignment 01" -f "../assignments/first"
 ```
 
 
