@@ -5,7 +5,7 @@
 
 1. Download from [here](https://github.com/nicksheffield/local-upload/archive/master.zip)
 2. Extract the zip
-3. Navigate to the `local-upload` folder on your command line
+3. Navigate to the `local-upload-master` folder on your command line
 4. Run the command `npm install`
 
 
@@ -37,4 +37,4 @@ eg. node server -t "Assignment 01" -f "../assignments/first"
 
 
 ## Usage
-Uploaded files will appear in the `uploads/` folder, unless otherwise specified by the `-f, --folder` flag
+Uploaded files will appear in the `local-upload-master/uploads/` folder, unless otherwise specified by the `-f, --folder` flag
