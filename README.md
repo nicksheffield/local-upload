@@ -2,7 +2,11 @@
 
 
 ## Install
-Navigate to the project folder and run `npm install`
+
+1. Download from [here](https://github.com/nicksheffield/local-upload/archive/master.zip)
+2. Extract the zip
+3. Navigate to the `local-upload` folder on your command line
+4. Run the command `npm install`
 
 
 ## Run
