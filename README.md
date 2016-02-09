@@ -18,19 +18,21 @@ Navigate to the project folder and run `node server`
 eg. 10.24.45.17:8000
 ```
 
-It is also possible to set an alternate upload path, and set a title to be displayed on the page. Using the `--help` flag shows us these options, or just read below.
+## Options
 
+You can use the `-t` or `--title` flag to modify the title displayed on the form
 ```
-node server --help
+eg. node server --title "Assignment 01"
+```
 
-  Usage: server [options]
+You can also use the `-f` or `--folder` flag to modify the upload destination folder
+```
+eg. node server --folder "../assignments/first"
+```
 
-  Options:
-
-    -h, --help           output usage information
-    -V, --version        output the version number
-    -f, --folder [name]  Destination of uploaded files. Defaults to uploads/
-    -t, --title [name]   Heading to appear in the browser
+You can also use them both at the same time
+```
+eg. node server --title "Assignment 01" --folder "../assignments/first"
 ```
 
 
