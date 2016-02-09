@@ -18,6 +18,21 @@ Navigate to the project folder and run `node server`
 eg. 10.24.45.17:8000
 ```
 
+It is also possible to set an alternate upload path, and set a title to be displayed on the page. Using the `--help` flag shows us these options, or just read below.
+
+```
+node server --help
+
+  Usage: server [options]
+
+  Options:
+
+    -h, --help           output usage information
+    -V, --version        output the version number
+    -f, --folder [name]  Destination of uploaded files. Defaults to uploads/
+    -t, --title [name]   Heading to appear in the browser
+```
+
 
 ## Usage
 Uploaded files will appear in the `uploads/` folder
