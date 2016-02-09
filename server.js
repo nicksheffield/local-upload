@@ -37,7 +37,7 @@ var app = express()
 app.listen(8000)
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
-app.use(session({ secret: 'keyboard cat' }))
+app.use(session({ secret: 'keyboard cat', resave: true, saveUninitialized: true }))
 app.set('view engine', 'ejs')
 app.set('views', __dirname)
 
@@ -78,5 +78,5 @@ function dateStamp() {
 // Command Line Logs
 // ---------------------------------------------
 console.log(dateStamp(), 'local-upload server running!')
-console.log('           Destination:', chalk.red(dest), '\n')
-console.log('           Uploaded files:')
+console.log('Destination:', chalk.red(dest))
+console.log('Uploaded files:')
