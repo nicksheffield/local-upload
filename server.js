@@ -60,7 +60,7 @@ app.post('/upload', upload.single('file'), function(req, res) {
 	
 	fs.rename(req.file.path, newPath, function(err) {
 		console.log(dateStamp(), chalk.green(path.parse(newPath).base))
-		req.session.message = path.parse(newPath).base + ' uploaded!'
+		req.session.message = req.file.originalname
 		res.redirect('/')
 	})
 })

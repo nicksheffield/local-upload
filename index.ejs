@@ -2,7 +2,11 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title><%= title %> - Upload Form</title>
+	<title><%if (title) { %>
+		<%= title %> - Upload form
+	<% }else{ %>
+		Upload form
+	<% } %></title>
 	<style>
 		body {
 			font-family: Helvetica, sans-serif;
@@ -69,21 +73,34 @@
 			width: 100%;
 			background: dodgerblue;
 			color: #fff;
-			padding: 0.5em;
+			padding: 1em;
 			margin: 0;
 			text-align: center;
 			-webkit-font-smoothing: antialiased;
+		}
+		
+		.message .name {
+			background: #fff;
+			border-radius: 3px;
+			padding: 0.5em;
+			color: dodgerblue;
 		}
 	</style>
 </head>
 <body>
 
 	<%if (message) { %>
-	<p class="message"><%= message %></p>
+	<p class="message"><span class="name"><%= message %></span> uploaded!</p>
 	<% } %>
 	
 
-	<h1><%= title %></h1>
+	<h1>
+		<%if (title) { %>
+			<%= title %>
+		<% }else{ %>
+			Upload form
+		<% } %>
+	</h1>
 	
 	<form action="/upload" method="post" enctype="multipart/form-data">
 		<input type="file" name="file">
