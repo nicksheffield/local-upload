@@ -7,6 +7,7 @@ Navigate to the project folder and run `npm install`
 
 ## Run
 Navigate to the project folder and run `node server`
+
 [Find your local ip address](http://lifehacker.com/5833108/how-to-find-your-local-and-external-ip-address) and give that to the students, plus `:8000`
 
 ```
