@@ -4,6 +4,7 @@ var fs           = require('fs')
 var path         = require('path')
 var chalk        = require('chalk')
 var multer       = require('multer')
+var rimraf       = require('rimraf')
 var mkdirp       = require('mkdirp')
 var express      = require('express')
 var program      = require('commander')
@@ -26,8 +27,16 @@ var dest = program.folder ? path.normalize(__dirname + '/' + program.folder) + '
 
 // Create directories
 // ---------------------------------------------
-mkdirp(__dirname+'/uploads', function(err) { if(err) console.error(err) })
-mkdirp(__dirname+'/tmp',     function(err) { if(err) console.error(err) })
+// delete the entire /tmp folder
+rimraf(__dirname+'/tmp', function(err) {
+	if(err) console.log(chalk.red('[ERROR] ') + err)
+	
+	// then recreate the /tmp folder empty
+	mkdirp(__dirname+'/tmp', function(err) { if(err) console.log(chalk.red('[ERROR] ') + err) })
+})
+
+// create the uploads folder
+mkdirp(__dirname+'/uploads', function(err) { if(err) console.log(chalk.red('[ERROR] ') + err) })
 
 
 
@@ -59,7 +68,7 @@ app.post('/upload', upload.single('file'), function(req, res) {
 	var newPath = dest + new Date().valueOf() + '__' + req.file.originalname
 	
 	fs.rename(req.file.path, newPath, function(err) {
-		console.log(dateStamp(), chalk.green(path.parse(newPath).base))
+		console.log('  ', dateStamp(), chalk.green(path.parse(newPath).base))
 		req.session.message = req.file.originalname
 		res.redirect('/')
 	})
@@ -77,6 +86,14 @@ function dateStamp() {
 
 // Command Line Logs
 // ---------------------------------------------
+console.log('---------------------------------------------------')
 console.log(dateStamp(), 'local-upload server running!')
 console.log('Destination:', chalk.red(dest))
+console.log('Press Ctrl+C to exit')
+console.log(' ')
 console.log('Uploaded files:')
+
+process.on('SIGINT', function() {	
+	console.log('---------------------------------------------------')
+	process.exit()
+})

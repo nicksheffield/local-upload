@@ -18,6 +18,7 @@
     "express": "^4.13.4",
     "express-session": "^1.13.0",
     "mkdirp": "^0.5.1",
-    "multer": "^1.1.0"
+    "multer": "^1.1.0",
+    "rimraf": "^2.5.1"
   }
 }
