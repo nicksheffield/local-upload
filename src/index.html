@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" ng-controller="mainCtrl">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>A3D Assessment Upload form</title>
+	<link rel="stylesheet" href="css/main.css">
+	
+	<script src="js/angular.min.js"></script>
+	<script src="js/angular-file-upload.min.js"></script>
+	<script src="js/app.js"></script>
+</head>
+<body>
+	
+	<div class="col left">
+		<h1>Advanced 3D Graphics</h1>
+		<h2>Assessment Dropbox</h2>
+		
+		<div class="datetime">
+			<div class="date">{{ now | date: 'EEE dd MMMM yyyy' }}</div>
+			<div class="time">{{ now | date: 'HH:mm:ss' }}</div>
+		</div>
+		
+		<select name="#" id="#" ng-model="selected" ng-options="item as item.name for item in options track by item.value">
+			<option value="" ng-if="!selected">Please choose</option>
+		</select>
+		
+		<ul>
+			<li ng-repeat="file in uploads">
+				<span class="date">{{ file.date | date: 'yy-MM-dd HH:mm:ss' }}</span>
+				{{ file.name }}
+			</li>
+		</ul>
+	</div>
+	
+	<div class="col right">
+		<div class="dropzone" nv-file-drop nv-file-over uploader="uploader" over-class="dragging">
+			<p>Drop files here</p>
+		</div>
+	</div>
+</body>
+</html>

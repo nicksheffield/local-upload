@@ -9,7 +9,6 @@ var mkdirp       = require('mkdirp')
 var express      = require('express')
 var program      = require('commander')
 var bodyParser   = require('body-parser')
-var session      = require('express-session')
 
 
 
@@ -46,32 +45,43 @@ var app = express()
 app.listen(8000)
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
-app.use(session({ secret: 'keyboard cat', resave: true, saveUninitialized: true }))
-app.set('view engine', 'ejs')
-app.set('views', __dirname)
 
 var upload  = multer({ dest: './tmp/' })
 
 // Handle default request
-app.get('/', function(req, res) {
-	// res.sendFile(__dirname + '/index.html')
-	res.render('index', {
-		title: program.title ? program.title : '',
-		message: req.session.message
-	})
-	
-	req.session.destroy()
-})
+app.use(express.static('./src'))
+// app.get('/', function(req, res) {
+// 	res.sendFile(__dirname + '/src/index.html')
+// })
 
 // Handle upload request
 app.post('/upload', upload.single('file'), function(req, res) {
-	var newPath = dest + new Date().valueOf() + '__' + req.file.originalname
 	
-	fs.rename(req.file.path, newPath, function(err) {
-		console.log('  ', dateStamp(), chalk.green(path.parse(newPath).base))
-		req.session.message = req.file.originalname
-		res.redirect('/')
+	var dest = __dirname + '/uploads/' + req.body.value
+	var newName = (new Date().valueOf()) + '__' + req.file.originalname
+	var newPath = dest + '/' + newPath
+	
+	// check if the destination folder exists
+	fs.stat(dest, function(err, stat) {
+		// if it does
+		if(stat) {
+			moveFile()
+		// if it doesn't
+		} else {
+			mkdirp(dest, function(err) {
+				moveFile()
+			})
+		}
+		
+		function moveFile() {
+			fs.rename(req.file.path, newPath, function(err) {
+				console.log('  ', dateStamp(), chalk.green(newName))
+				res.send(newName)
+			})
+		}
 	})
+	
+	
 })
 
 function z(n){ return n < 10 ? '0' + n : n }

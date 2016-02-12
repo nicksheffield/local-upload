@@ -1,0 +1,98 @@
+body {
+    background: #414449;
+    color: #fff;
+    margin: 0;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-justify-content: space-around;
+    -ms-flex-pack: distribute;
+    justify-content: space-around;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    min-height: 100vh;
+    font-family: Helvetica, Arial;
+    -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2 {
+    font-size: 1.5em;
+    font-weight: normal;
+    margin: 0;
+}
+
+h1 {
+    color: #2ca76f;
+}
+
+select {
+    padding: 1em;
+    border: 0;
+    height: 3em;
+    font: inherit;
+    outline: 0;
+}
+
+.col {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.datetime {
+    background: rgba(0,0,0,0.5);
+    padding: 1em;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    margin: 2em 0;
+}
+
+.datetime .time,
+.datetime .date {
+    padding: 0em 1em;
+}
+
+.datetime .time {
+    font-size: 2em;
+    margin-top: 0.25em;
+}
+
+.dropzone {
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    border: 10px dashed #fff;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    font-size: 2em;
+    text-transform: uppercase;
+}
+
+.dropzone.dragging {
+    border-color: #2ca76f;
+}
