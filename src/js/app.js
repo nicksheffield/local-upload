@@ -5,19 +5,15 @@ angular.element(document).ready(function() {
 })
 
 app.controller('mainCtrl', function($scope, $http, $timeout, $interval, FileUploader) {
-	$scope.options = [
-		{ name: 'Still Life Assessment',     value: '01_Still Life Assessment' },
-		{ name: 'Professional Development',  value: '02_Professional Development' },
-		{ name: 'Research Assessment',       value: '03_Research Assessment' },
-		{ name: 'Specialization Assessment', value: '04_Specialization Assessment' },
-		{ name: 'Production 1 Assessment',   value: '05_Production 01 Assessment' },
-		{ name: 'Production 2 Assessment',   value: '06_Production 02 Assessment' },
-		{ name: 'Demoreel Assessment',       value: '07_Demoreel Assessment' }
-	]
+	$scope.options = []
+	
+	$http.get('config.json').success(function(res) {
+		console.log('config.json', res)
+		$scope.options = res.assessments
+	})
 	
 	$scope.selected = undefined
 	
-	window.scope = $scope
 	
 	$scope.now = new Date()
 

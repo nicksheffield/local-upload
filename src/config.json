@@ -1,0 +1,33 @@
+{
+	"upload_directory": "./uploads/",
+	"assessments": [
+		{
+			"name": "Still Life Assessment",
+			"folder": "01_Still Life Assessment"
+		},
+		{
+			"name": "Professional Development",
+			"folder": "02_Professional Development"
+		},
+		{
+			"name": "Research Assessment",
+			"folder": "03_Research Assessment"
+		},
+		{
+			"name": "Specialization Assessment",
+			"folder": "04_Specialization Assessment"
+		},
+		{
+			"name": "Production 1 Assessment",
+			"folder": "05_Production 01 Assessment"
+		},
+		{
+			"name": "Production 2 Assessment",
+			"folder": "06_Production 02 Assessment"
+		},
+		{
+			"name": "Demoreel Assessment",
+			"folder": "07_Demoreel Assessment"
+		}
+	]
+}

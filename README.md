@@ -18,23 +18,6 @@ Navigate to the project folder and run `node server`
 eg. 10.24.45.17:8000
 ```
 
-## Options
-
-You can use the `-t` or `--title` flag to modify the title displayed on the form
-```
-eg. node server --title "Assignment 01"
-```
-
-You can also use the `-f` or `--folder` flag to modify the upload destination folder
-```
-eg. node server --folder "../assignments/first"
-```
-
-You can also use them both at the same time, in their short forms this time
-```
-eg. node server -t "Assignment 01" -f "../assignments/first"
-```
-
 
 ## Usage
-Uploaded files will appear in the `local-upload-master/uploads/` folder, unless otherwise specified by the `-f, --folder` flag
+Uploaded files will appear in the `local-upload-master/uploads/` folder

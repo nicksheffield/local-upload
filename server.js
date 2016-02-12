@@ -10,6 +10,8 @@ var express      = require('express')
 var program      = require('commander')
 var bodyParser   = require('body-parser')
 
+var config       = require('./src/config.json')
+
 
 
 // Command Line Flags
@@ -19,8 +21,6 @@ program
 	.option('-f, --folder [name]', 'Destination of uploaded files. Defaults to uploads/')
 	.option('-t, --title [name]', 'Heading to appear in the browser')
 	.parse(process.argv)
-	
-var dest = program.folder ? path.normalize(__dirname + '/' + program.folder) + '/' : __dirname + '/uploads/'
 
 
 
@@ -57,9 +57,12 @@ app.use(express.static('./src'))
 // Handle upload request
 app.post('/upload', upload.single('file'), function(req, res) {
 	
-	var dest = __dirname + '/uploads/' + req.body.value
+	var dest = config.upload_directory + '/' + req.body.folder
 	var newName = (new Date().valueOf()) + '__' + req.file.originalname
-	var newPath = dest + '/' + newPath
+	var newPath = dest + '/' + newName
+	
+	console.log('newPath', newPath)
+
 	
 	// check if the destination folder exists
 	fs.stat(dest, function(err, stat) {
@@ -98,7 +101,7 @@ function dateStamp() {
 // ---------------------------------------------
 console.log('---------------------------------------------------')
 console.log(dateStamp(), 'local-upload server running!')
-console.log('Destination:', chalk.red(dest))
+console.log('Destination:', chalk.red(config.upload_directory))
 console.log('Press Ctrl+C to exit')
 console.log(' ')
 console.log('Uploaded files:')

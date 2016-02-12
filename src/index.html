@@ -21,7 +21,7 @@
 			<div class="time">{{ now | date: 'HH:mm:ss' }}</div>
 		</div>
 		
-		<select name="#" id="#" ng-model="selected" ng-options="item as item.name for item in options track by item.value">
+		<select name="#" id="#" ng-model="selected" ng-options="item as item.name for item in options track by item.folder">
 			<option value="" ng-if="!selected">Please choose</option>
 		</select>
 		
