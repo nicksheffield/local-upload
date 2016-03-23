@@ -101,6 +101,7 @@ function dateStamp() {
 // ---------------------------------------------
 console.log('---------------------------------------------------')
 console.log(dateStamp(), 'local-upload server running!')
+console.log('Your address is', chalk.underline('http://' + require('os').networkInterfaces().en0[1].address + ':8000/'))
 console.log('Destination:', chalk.red(config.upload_directory))
 console.log('Press Ctrl+C to exit')
 console.log(' ')
